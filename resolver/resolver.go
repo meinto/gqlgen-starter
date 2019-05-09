@@ -1,26 +1,29 @@
-package gqlgen_starter
+package resolver
 
 import (
 	"context"
-) // THIS CODE IS A STARTING POINT ONLY. IT WILL NOT BE UPDATED WITH SCHEMA CHANGES.
+
+	"github.com/meinto/gqlgen-starter/graph/generated"
+	"github.com/meinto/gqlgen-starter/model"
+)
 
 type Resolver struct{}
 
-func (r *Resolver) Mutation() MutationResolver {
+func (r *Resolver) Mutation() generated.MutationResolver {
 	return &mutationResolver{r}
 }
-func (r *Resolver) Query() QueryResolver {
+func (r *Resolver) Query() generated.QueryResolver {
 	return &queryResolver{r}
 }
 
 type mutationResolver struct{ *Resolver }
 
-func (r *mutationResolver) CreateTodo(ctx context.Context, input NewTodo) (*Todo, error) {
+func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) (*model.Todo, error) {
 	panic("not implemented")
 }
 
 type queryResolver struct{ *Resolver }
 
-func (r *queryResolver) Todos(ctx context.Context) ([]Todo, error) {
+func (r *queryResolver) Todos(ctx context.Context) ([]model.Todo, error) {
 	panic("not implemented")
 }
