@@ -4,8 +4,8 @@
 # for detailed .gqlgen.yml documentation.
 
 schema:
-  - schemas/*.graphql
-  - schemas/*.gql
+  - schema/*.graphql
+  - schema/*.gql
 exec:
   filename: graph/generated/generated.go
   package: generated

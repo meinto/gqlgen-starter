@@ -2,6 +2,7 @@ package resolver
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/meinto/gqlgen-starter/graph/generated"
 	"github.com/meinto/gqlgen-starter/model"
@@ -17,13 +18,12 @@ func (r *Resolver) Query() generated.QueryResolver {
 }
 
 type mutationResolver struct{ *Resolver }
-
-func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) (*model.Todo, error) {
-	panic("not implemented")
-}
-
 type queryResolver struct{ *Resolver }
 
-func (r *queryResolver) Todos(ctx context.Context) ([]model.Todo, error) {
-	panic("not implemented")
+func (r *queryResolver) Hello(ctx context.Context, name string) (string, error) {
+	return fmt.Sprintf("Hi %s", name), nil
+}
+
+func (r *mutationResolver) Foo(ctx context.Context) (*model.Foo, error) {
+	return &model.Foo{"bar"}, nil
 }
