@@ -1,3 +1,4 @@
 .vscode
 graph
 model/generated.go
+gql-server
