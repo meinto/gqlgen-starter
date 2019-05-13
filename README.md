@@ -62,4 +62,13 @@ The project structure is like follows:
 4. and start your server: `go run server/server.go`.
 5. **Have fun! :)**
 
+## Docker
+
+Build your graphql as docker container:
+
+```bash
+docker build -t gql-server .
+docker run -p 8080:8080 gql-server
+```
+
 
